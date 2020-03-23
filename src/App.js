@@ -6,7 +6,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      myCoffees: []
+      myCoffees: [],
+      searchField: ''
     };
   }
 
@@ -21,7 +22,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <CardList coffees={this.state.myCoffees} />
+        <input type='search' placeholder='search coffee' onChange={ e => 
+          this.setState({ searchField: e.target.value })}
+        />
+        <CardList coffees={this.state.myCoffees.slice(0, 10)} />
       </div>
     );
   }
