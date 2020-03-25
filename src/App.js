@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { CardList } from './components/card-list/card-list.component'
+import { SearchBox } from './components/search-box/search-box.component'
+
 import './App.css';
 
 class App extends Component {
@@ -20,12 +22,18 @@ class App extends Component {
   }
 
   render() {
+    const { myCoffees, searchField } = this.state;
+    const filteredCoffees = myCoffees.filter(coffee => 
+      coffee.name.toLowerCase().includes(searchField.toLowerCase())
+      );
+    
     return (
       <div className="App">
-        <input type='search' placeholder='search coffee' onChange={ e => 
-          this.setState({ searchField: e.target.value })}
+        <SearchBox
+          placeholder='search coffees'
+          handleChange={ e => this.setState({ searchField: e.target.value })}
         />
-        <CardList coffees={this.state.myCoffees.slice(0, 10)} />
+        <CardList coffees={filteredCoffees} />
       </div>
     );
   }
