@@ -33,6 +33,7 @@ class App extends Component {
     
     return (
       <div className="App">
+        <h1>Coffee Menu</h1>
         <SearchBox
           placeholder='search coffees'
           handleChange={ this.handleChange }

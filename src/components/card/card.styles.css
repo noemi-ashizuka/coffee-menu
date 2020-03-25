@@ -12,6 +12,11 @@
   transition: transform 0.25s ease-out;
 }
 
+.card-container h1 {
+  color: #664f39;
+  font-size: 32px;
+}
+
 .card-container:hover {
   transform: scale(1.05);
 }
